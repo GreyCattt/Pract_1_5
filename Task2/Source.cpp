@@ -3,10 +3,9 @@
 using namespace std;
 int main()
 {
-    setlocale(LC_ALL, "uk_UA");
 
     int N;
-    cout << "вкажи кiлькiсть елементiв у послiдовностi N: ";
+    cout << "Specify the number of elements in the sequence N: ";
     cin >> N;
 
     int* A = new int[N];
@@ -30,7 +29,7 @@ int main()
 
         }
     }
-    cout << "Найменшим значенням значення серед додатних елементiв послiдовностi є: " << MinV << endl;
+    cout << "The smallest value of the value among the positive elements of the sequence is: " << MinV << endl;
     delete[] A;
     return 0;
 }

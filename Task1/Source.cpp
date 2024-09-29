@@ -9,10 +9,9 @@
 using namespace std;
 int main()
 {
-    setlocale(LC_ALL, "uk_UA");
 
     int N;
-    cout << "вкажи кiлькiсть елементiв у послiдовностi N: ";
+    cout << "Specify the number of elements in the sequence N: ";
     cin >> N;
 
     int* A = new int[N];
@@ -27,7 +26,7 @@ int main()
     }
     cout << endl;
     int P;
-    cout << "Вкажи значення P: ";
+    cout << "Enter the value of P:";
     cin >> P;
 
     int index = -1;
@@ -44,12 +43,12 @@ int main()
     }
     if (index != -1)
     {
-        cout << "Перше входження " << P << " знаходиться на iндексi " << index << endl;
+        cout << "First entry " << P << " is on the index " << index << endl;
 
     }
     else
     {
-        cout << "Значення " << P << " не знайдено в послiдовностi. " << endl;
+        cout << "Value " << P << "not found in sequence. " << endl;
 
     }
 

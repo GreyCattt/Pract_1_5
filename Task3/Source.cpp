@@ -1,51 +1,43 @@
 #include <iostream>
 #include <cmath>
+#include <algorithm>
+#include <vector>
 using namespace std;
 int main()
 {
-    setlocale(LC_ALL, "uk_UA");
 
     int N;
-    cout << "Вкажи кiлькiсть елементiв у послiдовностi N: ";
+    cout << "Specify the number of elements in the sequence N:";
     cin >> N;
+ 
+    std::vector<int> arr(N);//create a sequence of values
 
-    int* A = new int[N];
     srand(time(0));
 
-    for (int i = 0; i < N; i++)
-    {
-        A[i] = rand() % 100;
-        cout << A[i] << " ";
+    for (int i = 0; i < N; i++) { //Randomly filling with values
+        arr[i] = rand() % 100;
+        std::cout << arr[i] << " ";
+    }
+    std::cout << std::endl;
+    int minIndex = 0, maxIndex = 0;//Creating variables for the minimum and maximum values
 
+    for (int i = 1; i < N; i++) {
+        if (arr[i] < arr[minIndex]) {
+            minIndex = i;
+        }
+        if (arr[i] > arr[maxIndex]) {
+            maxIndex = i;
+        }
+    }
+    cout << "The smallest value in the sequence is: " << arr[minIndex] << endl;
+    cout << "The greatest value in the sequence is: " << arr[maxIndex] << endl;
+    std::swap(arr[minIndex], arr[maxIndex]);//change the values ??by places in the sequence
+    
+    cout << "After swapping, the sequence is: ";
+    for (int i = 0; i < N; i++) {
+        std::cout << arr[i] << " ";
     }
     cout << endl;
-
-    int MinV = A[0];
-
-    for (int i = 1; i < N; i++)
-    {
-        if (A[i] < MinV)
-        {
-            MinV = A[i];
-        }
-    }
-    cout << "Найменшим значенням значення серед додатних елементiв послiдовностi є: " << MinV << endl;
-
-    int MaxV = A[0];
-
-    for (int i = 1; i < N; i++)
-    {
-        if (A[i] > MaxV)
-        {
-            MaxV = A[i];
-
-        }
-    }
-    cout << "Найбiльшим значенням значення серед додатних елементiв послiдовностi є: " << MaxV << endl;
-    int temp = MinV;
-    MinV = MaxV;
-    MaxV = temp;
-    cout << "Пiсля перестановки значень виходить мiнiмальне як: " << MinV << " i максимальне як: " << MaxV << endl;
-    delete[] A;
+    std::cout << std::endl;
     return 0;
 }
